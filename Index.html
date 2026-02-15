@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ponal Distributors | Lazza Ice Cream</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background:#0f0f1a;
+  color:white;
+  display:flex;
+  min-height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+  width:220px;
+  background:#151528;
+  padding:20px;
+  border-right:2px solid #a020f0;
+  box-shadow:0 0 20px #a020f0;
+  height:100vh;
+}
+
+.sidebar h2{
+  text-align:center;
+  margin-bottom:20px;
+  color:#d580ff;
+  text-shadow:0 0 10px #a020f0;
+}
+
+.sidebar ul{
+  list-style:none;
+  padding:0;
+}
+
+.sidebar ul li{
+  padding:12px;
+  margin:10px 0;
+  cursor:pointer;
+  border-radius:8px;
+  text-align:center;
+  transition:0.3s;
+}
+
+.sidebar ul li:hover{
+  background:#a020f0;
+  box-shadow:0 0 15px #a020f0;
+}
+
+/* MAIN */
+.main{
+  flex:1;
+  padding:20px;
+}
+
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+}
+
+.site-logo{
+  height:80px;  /* bigger logo */
+  width:auto;
+  margin-right:15px;
+  vertical-align:middle;
+}
+
+.call-btn{
+  background:#a020f0;
+  padding:10px 15px;
+  border-radius:25px;
+  text-decoration:none;
+  color:white;
+  box-shadow:0 0 15px #a020f0;
+  transition:0.3s;
+}
+
+.call-btn:hover{
+  background:#c060ff;
+}
+
+/* TOP ORDER MESSAGE */
+.order-message{
+  width:100%;
+  background:#1b1b35;
+  color:#fff;
+  text-align:center;
+  padding:15px 0;
+  font-size:18px;
+  font-weight:bold;
+  text-shadow:
+     0 0 5px #a020f0,
+     0 0 10px #a020f0,
+     0 0 20px #d580ff,
+     0 0 30px #d580ff;
+  animation: glow 1.5s infinite alternate;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+
+.order-message a{
+  color:#fff;
+  text-decoration:underline;
+  font-weight:bold;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #a020f0,
+      0 0 10px #a020f0,
+      0 0 20px #d580ff,
+      0 0 30px #d580ff;
+  }
+  to {
+    text-shadow:
+      0 0 10px #d580ff,
+      0 0 20px #d580ff,
+      0 0 30px #a020f0,
+      0 0 40px #a020f0;
+  }
+}
+
+/* SEARCH BAR */
+.search-bar{
+  width:100%;
+  margin-bottom:20px;
+}
+
+.search-bar input{
+  width:100%;
+  padding:10px 15px;
+  border-radius:25px;
+  border:none;
+  outline:none;
+  font-size:16px;
+  background:#1b1b35;
+  color:white;
+  border:2px solid #a020f0;
+}
+
+.search-bar input::placeholder{
+  color:#aaa;
+}
+
+/* DISTRIBUTOR CARD */
+.distributor-card{
+  margin:20px 0;
+  padding:20px;
+  background:#1b1b35;
+  border:2px solid #a020f0;
+  border-radius:15px;
+  box-shadow:0 0 20px #a020f0;
+  text-align:center;
+}
+
+.distributor-card h3{
+  color:#d580ff;
+  margin-bottom:10px;
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.product{
+  background:#1a1a2e;
+  padding:15px;
+  border-radius:15px;
+  text-align:center;
+  transition:0.3s;
+  border:1px solid #2d2d50;
+  position:relative;
+}
+
+.product:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #a020f0;
+}
+
+/* Tooltip */
+.tooltip{
+  visibility:hidden;
+  background:#2a2a45;
+  color:#fff;
+  text-align:center;
+  padding:8px 12px;
+  border-radius:10px;
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:10;
+  width:180px;
+  font-size:14px;
+  border:1px solid #a020f0;
+  box-shadow:0 0 15px #a020f0;
+}
+
+.product:hover .tooltip{
+  visibility:visible;
+}
+
+.product img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.product h4{
+  margin:10px 0;
+}
+
+.price{
+  color:#d580ff;
+  font-weight:bold;
+}
+
+/* FOOTER */
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#aaa;
+  padding:20px 0;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  body{
+    flex-direction:column;
+  }
+
+  .sidebar{
+    width:100%;
+    height:auto;
+    display:flex;
+    overflow-x:auto;
+  }
+
+  .sidebar ul{
+    display:flex;
+  }
+
+  .sidebar ul li{
+    margin:5px;
+    white-space:nowrap;
+  }
+
+  .products{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>Categories</h2>
+<ul>
+<li onclick="showCategory('all')">All Ice Creams</li>
+<li onclick="showCategory('cone')">Cone</li>
+<li onclick="showCategory('family')">Family Pack</li>
+<li onclick="showCategory('bar')">Bar</li>
+</ul>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="header">
+<div class="header-left">
+  <img src="logo.png" alt="Ponal Distributors" class="site-logo">
+  <div class="logo">Ponal Distributors 🍦</div>
+</div>
+<a href="tel:8086085007" class="call-btn">Call Now</a>
+</div>
+
+<!-- TOP ORDER MESSAGE -->
+<div class="order-message">
+  To order, click the <a href="tel:8086085007">Call Now</a> button! 📞
+</div>
+
+<!-- SEARCH BAR -->
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="Search Ice Cream..." onkeyup="searchProducts()">
+</div>
+
+<!-- DISTRIBUTOR CARD -->
+<div class="distributor-card">
+<h3>Official Distributor</h3>
+<p>Salahudeen</p>
+<h3>Sales Executive</h3>
+<p>Mujeeb</p>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products" id="productContainer">
+<!-- Ice creams injected here -->
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Kerala, Thamarakulam, Naallu Mukku | © 2026 Lazza Ice Cream
+</div>
+
+<script>
+// Product list with descriptions and prices
+const products = [
+  {name:"Chocolate Cone", category:"cone", price:40, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4iUGeoAD8ZodZBcH-XJagNRYS9Umvgfcs7z_KhypVDw&s=10", desc:"Rich chocolate ice cream in a crunchy cone."},
+  {name:"Red Velvet Cone", category:"cone", price:50, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Tn8K8XTfH0JhtwLGc5zB1xIE6rJG4bGzxdj1t6Nfdg&s=10", desc:"Smooth red velvet ice cream with creamy flavor."},
+  {name:"Belgian Chocolate", category:"family", price:200, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrLyCCrLatGLbWuDKLxnZdtpKhRXP3QfOuKKiAiSk2WQ&s=10", desc:"Premium Belgian chocolate family pack."},
+  {name:"Red Velvet Family", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7DSAt4M__vqa7CkH6c6G4oEaILrIfzPsoCpo2EI6sLQ&s", desc:"Rich red velvet ice cream for the family."},
+  {name:"Strawberry", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgth_okVnod04LxfzgYWTU9POjgeFV3CAYLBzRF5L97w&s=10", desc:"Fresh strawberry flavor family pack."},
+  {name:"Mango", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyUSIQc6cvUwtUYxVvLKda-EPkaxCjuc3ba1-hOwFQ&s=10", desc:"Sweet and tropical mango ice cream."},
+  {name:"Butterscotch", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0NGV_huFgSSgIAElZSGMOt3mxJ_phX0EAKVIYa7bl5nzZfI311CBnbAw&s=10", desc:"Creamy butterscotch ice cream family pack."},
+  {name:"Cookies & Cream", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk2d-9a8_42mgYVZyYZycU4QhpYcww6RE3MUy0xKa7GsexdvABElisD2y6&s=10", desc:"Delicious cookies & cream flavor."},
+  {name:"Black Currant", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzB-Km1SCOcV8YDLMiiS2AIrHR9GYuIkbL7aHsVnzap2V5OGaqi8QZyiKs&s=10", desc:"Tangy black currant flavor ice cream."},
+  {name:"Pista", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnONOBW4jdeT4Phjm14Z_cdhn7TomiKUa4VnLdgJcXajczt2gwwYaWe9Y&s=10", desc:"Creamy pista nut ice cream."},
+  {name:"Tender Coconut", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuNxyTVzwH4COeUGVOY9sYzIozRuDer2kzzcWQC1twPg&s=10", desc:"Refreshing tender coconut flavor."},
+  {name:"Spanish Delite", category:"family", price:180, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi_wSJ6wb4kZpwfLmCDg5fWh8uZe9fiLQgBa2SZ--g_w&s", desc:"Smooth and creamy Spanish Delite family pack."},
+  {name:"American Bar", category:"bar", price:50, image:"https://b.zmtcdn.com/data/dish_photos/6dc/f7896a358254ca279494d04a42e6d6dc.png", desc:"Classic American ice cream bar."},
+  {name:"Mango Bar", category:"bar", price:40, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYLwGJ6wmo6NV6UcpAbCQmj-zyjUzLxaTuF1RTWfx2rQ&s=10", desc:"Sweet mango ice cream bar."},
+  {name:"Raspberry Bar", category:"bar", price:40, image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXOAIsoDnYw_l2LVmQGIdjMVovd3tMhTPeZgE6eANR7g&s", desc:"Tangy raspberry ice cream bar."},
+  {name:"Strawberry Bar", category:"bar", price:40, image:"https://images.jdmagicbox.com/quickquotes/images_main/lazza-ice-cream-09-12-2020-037-219911884-lo712.jpg", desc:"Strawberry flavored ice cream bar."}
+];
+
+// Display products
+function displayProducts(list){
+  const container=document.getElementById("productContainer");
+  container.innerHTML="";
+  list.forEach(p=>{
+    const div=document.createElement("div");
+    div.className="product "+p.category;
+    div.innerHTML=`
+      <img src="${p.image}">
+      <h4>${p.name}</h4>
+      <div class="price">₹${p.price}</div>
+      <div class="tooltip">${p.desc}</div>
+    `;
+    container.appendChild(div);
+  });
+}
+
+// Show category
+function showCategory(cat){
+  if(cat==="all"){
+    displayProducts(products);
+  }else{
+    displayProducts(products.filter(p=>p.category===cat));
+  }
+  document.getElementById("searchInput").value="";
+}
+
+// Search
+function searchProducts(){
+  const searchValue=document.getElementById("searchInput").value.toLowerCase();
+  displayProducts(products.filter(p=>p.name.toLowerCase().includes(searchValue)));
+}
+
+// Initial load
+displayProducts(products);
+</script>
+
+</body>
+</html>
